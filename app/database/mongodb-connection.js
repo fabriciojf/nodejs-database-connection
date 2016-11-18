@@ -1,13 +1,13 @@
 // default settings
-var config = require('../config/default.config');
-var user = require('../model/user.model');
+var config = require('../config/default-config');
+var user = require('../model/user-model');
 
 // connection prototype
-function mongoConnection() {
+function MongoConnection() {
     this.mongoose = require('mongoose');
     this.mongoose.connect(config.mongodb.host);
 }
-mongoConnection.prototype = {
+MongoConnection.Mrototype = {
 
     create: function (name, email, password, callback) {
         var me = new user({
@@ -66,4 +66,4 @@ mongoConnection.prototype = {
 
 }
 
-module.exports = mongoConnection;
+module.exports = MongoConnection;

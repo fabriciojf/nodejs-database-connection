@@ -1,7 +1,7 @@
 # nodejs-database-connection
 Samples database connections: mongodb, mysql and postgresql
 
-### mMysql DDL
+### Mysql DDL
 
 ```sql
 create table users (
@@ -24,3 +24,6 @@ create table users (
   PRIMARY KEY (id)
 );
 ```
+
+### Author
+[Fabricio Costa](http://fabriciojf.com)

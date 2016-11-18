@@ -1,11 +1,11 @@
 // default settings
-var config = require('../config/default.config');
+var config = require('../config/default-config');
 
 // imports
 var mysql = require('mysql');
 
 // connection prototype
-function mysqlConnection() {
+function MysqlConnection() {
     this.con = mysql.createConnection({
         host: config.mysql.host,
         user: config.mysql.user,
@@ -14,7 +14,7 @@ function mysqlConnection() {
     })
 }
 
-mysqlConnection.prototype = {
+MysqlConnection.prototype = {
 
     create: function (userJson, callback) {
         this.con.connect();
@@ -70,4 +70,4 @@ mysqlConnection.prototype = {
 
 }
 
-module.exports = mysqlConnection;
+module.exports = MysqlConnection;
