@@ -6,12 +6,7 @@ var mysql = require('mysql');
 
 // connection prototype
 function MysqlConnection() {
-    this.con = mysql.createConnection({
-        host: config.mysql.host,
-        user: config.mysql.user,
-        password: config.mysql.pass,
-        database: config.mysql.database
-    })
+    this.con = mysql.createConnection(config.mysql.settings);
 }
 
 MysqlConnection.prototype = {
@@ -22,8 +17,7 @@ MysqlConnection.prototype = {
             if (err) throw err;            
             callback({
                 success: true,
-                "message": "User created",
-                "userData": res
+                userData: res
             });
         });
         this.con.end();
@@ -34,9 +28,8 @@ MysqlConnection.prototype = {
         this.con.query('SELECT * FROM users WHERE name = ?', name, function (err, res) {
             if (err) throw err;            
             callback({
-                success: true,
-                "message": "find by name result",
-                "userData": res
+                success: true,                
+                userData: res
             });
         });
         this.con.end();
@@ -48,8 +41,7 @@ MysqlConnection.prototype = {
             if (err) throw err;            
             callback({
                 success: true,
-                "message": "find all result",
-                "userData": res
+                userData: res
             });
         });
         this.con.end();
@@ -61,8 +53,7 @@ MysqlConnection.prototype = {
             if (err) throw err;            
             callback({
                 success: true,
-                "message": 'User removed',
-                "userData": res
+                userData: res
             });
         });
         this.con.end();

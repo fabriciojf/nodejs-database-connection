@@ -8,9 +8,9 @@ var pgController = require('../controller/postgres-controller.js');
 var pg = new pgController();
 
 // routes
-router.post('/', pg.create);
 router.get('/', pg.findAll);
-router.delete('/:name', pg.remove);
 router.get('/:name', pg.findByName);
+router.post('/', pg.create);
+router.delete('/:name', pg.remove);
 
 module.exports = router;

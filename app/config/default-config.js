@@ -1,12 +1,14 @@
 module.exports = {
     mongodb: {
-        host: 'mongodb://localhost/mongotest'
+        connectionString: 'mongodb://localhost/mongotest'
     },
     mysql: {
-        host: 'localhost',
-        user: 'nodejs',
-        pass: 'node123',
-        database: 'nodetest'
+        settings: {
+            host: 'localhost',
+            user: 'nodejs',
+            password: 'node123',
+            database: 'nodetest'
+        }
     },
     postgres: {
         connectionString: 'postgres://postgres:PASS@192.168.25.100:5432/DATABASE',  
